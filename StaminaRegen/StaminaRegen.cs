@@ -22,20 +22,22 @@ namespace StaminaRegen
 
         public override string Version
         {
-            get { return "1.0"; }
+            get { return "1.1"; }
         }
 
         public override string Description
         {
-            get { return "Slow Regenerates Stamina every 3s"; }
+            get { return "Regenerates Stamina every set amount"; }
         }
 
         public override void Entry()
         {
+            ReadConfig();
             Events.UpdateTick += Events_UpdateTick;
         }
 
-        private const float RegenTime = 3.0f;
+        private float RegenTime = 3.0f;
+        private int RegenAmount = 1;
 
         private double prevTime = 0;
 
@@ -49,8 +51,44 @@ namespace StaminaRegen
 
             prevTime = Game1.currentGameTime.TotalGameTime.TotalSeconds;
 
-            ++Game1.player.Stamina;
+            Game1.player.Stamina += RegenAmount;
 
+        }
+
+        private void ReadConfig()
+        {
+            if (System.IO.File.Exists("StaminaRegen_Config.ini"))
+            {
+                var fileData = System.IO.File.ReadAllLines("StaminaRegen_Config.ini");
+                if (fileData.Length > 1)
+                {
+                    //Load in TickRate
+                    var regenTickRateString = fileData[0];
+                    regenTickRateString = regenTickRateString.Replace("RegenTickRate:", "").Trim();
+                    int newRate;
+                    if (int.TryParse(regenTickRateString, out newRate))
+                    {
+                        RegenTime = Math.Max(1, newRate);
+                    }
+
+                    //Load in Amount
+                    var regenAmountString = fileData[1];
+                    regenAmountString = regenAmountString.Replace("RegenAmount:", "").Trim();
+                    int newAmount;
+                    if (int.TryParse(regenAmountString, out newAmount))
+                    {
+                        RegenAmount = newAmount;
+                    }
+
+                }
+            }
+            else
+            {
+                var dataToWrite = @"RegenTickRate: 3
+RegenAmount: 1";
+
+                System.IO.File.WriteAllText("StaminaRegen_Config.ini", dataToWrite);
+            }
         }
     }
 }
