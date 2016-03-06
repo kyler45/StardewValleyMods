@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StardewModdingAPI;
 using StardewValley;
+using StardewModdingAPI.Events;
 
 namespace StaminaRegen
 {
@@ -30,10 +31,10 @@ namespace StaminaRegen
             get { return "Regenerates Stamina every set amount"; }
         }
 
-        public override void Entry()
+        public override void Entry(params object[] objects)
         {
             ReadConfig();
-            Events.UpdateTick += Events_UpdateTick;
+            GameEvents.UpdateTick += Events_UpdateTick;
         }
 
         private float RegenTime = 3.0f;
@@ -41,7 +42,7 @@ namespace StaminaRegen
 
         private double prevTime = 0;
 
-        void Events_UpdateTick()
+        void Events_UpdateTick(object sender, EventArgs e)
         {
             if (Game1.player == null || !Game1.hasLoadedGame)
                 return;

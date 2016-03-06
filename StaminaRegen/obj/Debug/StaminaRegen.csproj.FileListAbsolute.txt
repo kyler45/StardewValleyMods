@@ -1,0 +1,10 @@
+E:\Downloads\StardewValleyMods-master\StardewValleyMods-master\StaminaRegen\obj\Debug\StaminaRegen.csprojResolveAssemblyReference.cache
+E:\Downloads\StardewValleyMods-master\StardewValleyMods-master\StaminaRegen\bin\Debug\StaminaRegen.dll
+E:\Downloads\StardewValleyMods-master\StardewValleyMods-master\StaminaRegen\bin\Debug\StaminaRegen.pdb
+E:\Downloads\StardewValleyMods-master\StardewValleyMods-master\StaminaRegen\bin\Debug\Microsoft.Xna.Framework.Graphics.dll
+E:\Downloads\StardewValleyMods-master\StardewValleyMods-master\StaminaRegen\bin\Debug\Stardew Valley.exe
+E:\Downloads\StardewValleyMods-master\StardewValleyMods-master\StaminaRegen\bin\Debug\StardewModdingAPI.exe
+E:\Downloads\StardewValleyMods-master\StardewValleyMods-master\StaminaRegen\bin\Debug\Lidgren.Network.dll
+E:\Downloads\StardewValleyMods-master\StardewValleyMods-master\StaminaRegen\bin\Debug\Steamworks.NET.dll
+E:\Downloads\StardewValleyMods-master\StardewValleyMods-master\StaminaRegen\obj\Debug\StaminaRegen.dll
+E:\Downloads\StardewValleyMods-master\StardewValleyMods-master\StaminaRegen\obj\Debug\StaminaRegen.pdb
